@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "ESApiApp",
+    "slug": "ESApiApp",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
