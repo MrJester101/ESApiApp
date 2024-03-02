@@ -1,21 +1,48 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import 'react-native-gesture-handler';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import HomePage from './Screens/HomePage';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+import * as Font from 'expo-font';
+
+
+
+const Stack = createStackNavigator();
+
+export default class App extends React.Component {
+  state = {
+    isFontLoaded: false
+  }
+
+  async componentDidMount() {
+    await Font.loadAsync({
+      'Bold': require('./Screens/fonts/Montserrat-ExtraBold.otf'),
+      'Medium': require('./Screens/fonts/Montserrat-Medium.otf'),
+      'Regular': require('./Screens/fonts/Montserrat-Regular.otf'),
+    });
+    this.setState({ isFontLoaded: true })
+  }
+
+  render() {
+    return (
+      <NavigationContainer>
+        {this.state.isFontLoaded ? (
+          <Stack.Navigator>
+            <Stack.Screen
+              name="HomePage"
+              component={HomePage}
+              options={{ headerShown: false }}
+            />
+            {/* Add more screens here */}
+            {/* <Stack.Screen
+              name="OtherScreen"
+              component={OtherScreen}
+              options={{ headerShown: false }}
+            /> */}
+          </Stack.Navigator>
+        ) : null}
+      </NavigationContainer>
+    );
+  }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
