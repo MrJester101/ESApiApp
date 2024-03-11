@@ -43,81 +43,61 @@ export default class Posts extends React.Component{
                
 
              <View style={{
-                   flexDirection:"row",
+                   flexDirection:"column",
                    width:"100%",
                    paddingHorizontal:15,
             
                    backgroundColor:"#fff"
                }}>
 
-              <TouchableOpacity style={{
-                        // width:"90%",
-                        flex:1,
-                        alignItems:"flex-start",
-                        backgroundColor:"#fff"
-                    }}
-                    onPress={onPress}>
-                         <Text style={{
-                           fontFamily:"Bold",
-                           fontSize:20,
-                           color:"#044244"
-                            }}>{question}</Text>
-                    </TouchableOpacity>
-
-
-
-                    <View style={{
-                        width:"10%",
-                        marginTop:7,
-                        alignItems:"flex-end"
-                    }}>
-                        <Icon
-                            name="dots-three-vertical"
-                            color="#044244"
-                            size={15}
-                        />
-                    </View>
-                
-               
-            
-            
-            
-            
-            </View>
-
-
-
                <View style={{
                    flexDirection:"row",
                    paddingTop:5,
-                   paddingHorizontal:15,
+                   justifyContent:"space-between",
                    backgroundColor:"#fff",
-                   alignItems:"top"         
+                   
+                            
                 }}>
-                    <View style={{width:"15%"}}>
-                            <Image
-                                source={profile}
-                                style={{
-                                    width:45,
-                                    height:45,
-                                    
-                                    borderRadius:22.5
-                                }}
-                                />
+                <View style={{
+                    flexDirection:"row"
+                }}>
+                <View >
+                    <TouchableOpacity>
+                    <Image
+                    source={{ uri: profile }}         
+                    style={{
+                    width:35,
+                    height:35,
+                    borderRadius:22.5
+                    }}
+                    />
+
+                    </TouchableOpacity>
+                           
+                               
                     </View>
-                    <View style={{
-                        // width:"75%"
+
+
+                    <View 
+                    style={{
+                        marginHorizontal:15
                     }}>
-                       
+                        
+                     <TouchableOpacity
+                                onPress={this.onLike}
+                             
+                            >
+                             
 
-
-                        <Text style={{
+                             <Text style={{
                             fontFamily:"Bold",
                             fontSize:14,
                             color:"#044244"
                         }}>{name}</Text>
+                     </TouchableOpacity>
 
-                       
+
+                
 
                         <Text style={{
                             fontFamily:"Medium",
@@ -131,14 +111,28 @@ export default class Posts extends React.Component{
                     </View>
 
 
-                    <TouchableOpacity
+                </View>
+                   
+
+                    <View style={{
+                        width:"30%",
+                        alignSelf:"flex-end",
+                        flexDirection:"row",
+                        justifyContent:'space-evenly'
+
+                    }}>
+                     <TouchableOpacity
                                 onPress={this.onLike}
                                 style={{
-                                    marginBottom:20,
-                                    borderRadius:8,
-                                    padding:5,
-                                    marginLeft:10,
-                                    backgroundColor:"#eaeaea",
+                                    flex:1,
+                      
+                                borderRadius:8,
+                                paddingVertical:3,
+                                paddingHorizontal:10,
+                                marginLeft:10,
+                                marginVertical:3,
+                                alignItems:"center",
+                                backgroundColor:"#eaeaea",
                                   
                                 
                                 }}
@@ -146,19 +140,73 @@ export default class Posts extends React.Component{
                              
 
                               <Text style={{
-                            fontFamily:"Bold",
-                            fontSize:12,
-                            paddingHorizontal:1,
-                            alignSelf:"center",
-                            color:"#044244" 
-                               }}>
-                            Follow
-                        </Text>
-                            </TouchableOpacity>
+                                   fontFamily:"Bold",
+                                   fontSize:12,
+                                 
+                                   alignSelf:"center",
+                                   color:"#044244" 
+                                   }}>
+                                   Follow
+                                   </Text>
+                         
+                    </TouchableOpacity>
 
+
+                    <View style={{
+                        width:"10%",
+                        // marginTop:7,
+                        paddingTop:5,
+                        alignItems:"center"
+                    }}>
+                    <TouchableOpacity>
+                        <Icon
+                            name="dots-three-vertical"
+                            color="#044244"
+                            size={15}
+                        />
+
+                    </TouchableOpacity>
+                        
+                    </View>
+
+
+                    </View>
+
+
+                   
 
 
                </View>
+
+              <TouchableOpacity style={{
+                        // width:"90%",
+                        flex:1,
+                        alignItems:"flex-start",
+                        paddingHorizontal:2,
+                        backgroundColor:"#fff"
+                    }}
+                    onPress={onPress}>
+                         <Text style={{
+                           fontFamily:"Bold",
+                           fontSize:20,
+                           color:"#044244"
+                            }}>{question}</Text>
+                    </TouchableOpacity>
+
+
+
+                   
+                
+               
+            
+            
+            
+            
+            </View>
+
+
+
+              
 
                {photo &&(  <View style={{
                    flexDirection:"row",
@@ -168,7 +216,7 @@ export default class Posts extends React.Component{
                    backgroundColor:"#fff"
                }}>
                     <ImageBackground 
-                    source={photo}
+                    source={{ uri: photo }}
                     style={{
                         width:"100%",
                         height:220,

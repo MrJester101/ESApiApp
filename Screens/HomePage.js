@@ -17,7 +17,7 @@ export default class Home extends React.Component{
         this.setState({popularSelected:!this.state.popularSelected})
     }
     render(){
-        const baseUrl = 'https://reqres.in';
+       
 
         return(
             <LinearGradient
@@ -191,12 +191,13 @@ export default class Home extends React.Component{
           >
 
                        <Posts
-                        onPress={()=>this.props.navigation.navigate('Detail')}
+                        onPress={()=>this.props.navigation.navigate('SamplePosts')}
                         name="TheUncomplicated"
                         time="08 mins ago"
                         question="What's your view on the following Ram Mandir inauguration ?"
-                        profile={require('../images/p1.jpg')}
-                        photo={require('../images/RamMandir.png')}
+                        profile='https://www.zdnet.com/a/img/resize/605df164b50d7127344cce4c41e5e2a36ac951b4/2023/04/05/e0478a88-b3ed-4516-8459-e0b919b4b2bc/artificial-intelligence.jpg?auto=webp&width=1280'
+                        photo='https://www.zdnet.com/a/img/resize/605df164b50d7127344cce4c41e5e2a36ac951b4/2023/04/05/e0478a88-b3ed-4516-8459-e0b919b4b2bc/artificial-intelligence.jpg?auto=webp&width=1280'
+      
                         option1="Oportunity to capitalize"
                         option2="Waste of Money"
                         option3="Political Agenda"
@@ -212,7 +213,9 @@ export default class Home extends React.Component{
                         name="@LoneWol080"
                         time="45 min ago"
                         question="Politics and religion should not be mixed together? What is your saying?"
-                        profile={require('../images/p1.jpg')}
+                        profile='https://www.zdnet.com/a/img/resize/605df164b50d7127344cce4c41e5e2a36ac951b4/2023/04/05/e0478a88-b3ed-4516-8459-e0b919b4b2bc/artificial-intelligence.jpg?auto=webp&width=1280'
+                        photo='https://www.zdnet.com/a/img/resize/605df164b50d7127344cce4c41e5e2a36ac951b4/2023/04/05/e0478a88-b3ed-4516-8459-e0b919b4b2bc/artificial-intelligence.jpg?auto=webp&width=1280'
+      
                         option1="Yes"
                         option2="No"
                         option3="LMKIC"
@@ -228,8 +231,9 @@ export default class Home extends React.Component{
                         name="Mr.Jester"
                         time="24 mins ago"
                         question="Are you afraid of posting pictures due to growth of deepfake technology?"
-                        profile={require('../images/p1.jpg')}
-                        photo={require('../images/deepfake.png')}
+                        profile='https://www.zdnet.com/a/img/resize/605df164b50d7127344cce4c41e5e2a36ac951b4/2023/04/05/e0478a88-b3ed-4516-8459-e0b919b4b2bc/artificial-intelligence.jpg?auto=webp&width=1280'
+                        photo='https://www.zdnet.com/a/img/resize/605df164b50d7127344cce4c41e5e2a36ac951b4/2023/04/05/e0478a88-b3ed-4516-8459-e0b919b4b2bc/artificial-intelligence.jpg?auto=webp&width=1280'
+      
                         option1="Yes"
                         option2="Not Exactly"
                         option3="Litle Much"
@@ -244,8 +248,9 @@ export default class Home extends React.Component{
                         name="CricketGeek"
                         time="1 h ago"
                         question="Do you think virat kohli will surpass the legacy of Sachin Tendulkar in next 5 years ?"
-                        profile={require('../images/p2.jpg')}
-                        photo={require('../images/vkst.png')}
+                        profile='https://www.zdnet.com/a/img/resize/605df164b50d7127344cce4c41e5e2a36ac951b4/2023/04/05/e0478a88-b3ed-4516-8459-e0b919b4b2bc/artificial-intelligence.jpg?auto=webp&width=1280'
+                        photo='https://www.zdnet.com/a/img/resize/605df164b50d7127344cce4c41e5e2a36ac951b4/2023/04/05/e0478a88-b3ed-4516-8459-e0b919b4b2bc/artificial-intelligence.jpg?auto=webp&width=1280'
+      
                       />
 
                
@@ -256,8 +261,9 @@ export default class Home extends React.Component{
                         question="Change in criminal laws that increases jail terms in hit-and-run cases to up to 10 years,Do you support these changes ?"
                         time="3 h ago"
                         name="User241"
-                        profile={require('../images/p1.jpg')}
-                        photo={require('../images/vkst.png')}
+                        profile='https://www.zdnet.com/a/img/resize/605df164b50d7127344cce4c41e5e2a36ac951b4/2023/04/05/e0478a88-b3ed-4516-8459-e0b919b4b2bc/artificial-intelligence.jpg?auto=webp&width=1280'
+                       photo='https://www.zdnet.com/a/img/resize/605df164b50d7127344cce4c41e5e2a36ac951b4/2023/04/05/e0478a88-b3ed-4516-8459-e0b919b4b2bc/artificial-intelligence.jpg?auto=webp&width=1280'
+      
                       />
 
                    
