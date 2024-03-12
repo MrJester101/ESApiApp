@@ -4,6 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomePage from './Screens/HomePage';
 import SamplePosts from './Screens/SamplePosts';
+import ContentLibrary from "./Screens/ContentLibrary"
+import ContentPosts from './Screens/ContentPosts';
 
 import * as Font from 'expo-font';
 
@@ -31,17 +33,31 @@ export default class App extends React.Component {
         {this.state.isFontLoaded ? (
           <Stack.Navigator>
 
-          <Stack.Screen
-              name="SamplePosts"
-              component={SamplePosts}
-              options={{ headerShown: false }}
-            /> 
+         
             
             <Stack.Screen
               name="HomePage"
               component={HomePage}
               options={{ headerShown: false }}
             />
+
+             <Stack.Screen
+              name="ContentLibrary"
+              component={ContentLibrary}
+              options={{ headerShown: false }}
+            /> 
+
+             <Stack.Screen
+              name="SamplePosts"
+              component={SamplePosts}
+              options={{ headerShown: false }}
+            /> 
+
+             {/* <Stack.Screen
+              name="ContentPosts"
+              component={ContentPosts}
+              options={{ headerShown: false }}
+            />  */}
             {/* Add more screens here */}
           
           </Stack.Navigator>
