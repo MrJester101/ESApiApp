@@ -1,28 +1,62 @@
-import React from 'react';
-import {View,Text,Image,ImageBackground,TouchableOpacity} from 'react-native';
+// import React from 'react';
+import {View,Text,Image,ImageBackground,FlatList,TouchableOpacity,StyleSheet} from 'react-native';
+// import { View, FlatList, StyleSheet,Text,Image,ImageBackground,TouchableOpacity } from 'react-native';
 import {ScrollView,TextInput} from 'react-native-gesture-handler';
 import Icon from '@expo/vector-icons/Entypo';
 import Posts from '../Screens/Posts';
 import { LinearGradient } from 'expo-linear-gradient';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 
 
+      
+const App = () => {
+  const [posts, setPosts] = useState([]);
 
-export default class Home extends React.Component{
-    state={
-        popularSelected:true
-    }
-    onTabPressed=()=>{
-        this.setState({popularSelected:!this.state.popularSelected})
-    }
+  useEffect(() => {
+    // Make GET request to fetch posts
+    axios.get('http://10.0.0.15:8080/searchDocument')
+      .then(response => {
+        // Set the fetched posts in state
+        setPosts(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching posts:', error);
+      });
+  }, []);
+
+  
+
+  // Render each post item
+  const renderItem = ({ item }) => (
+    <Posts
+      name="Suyash"
+      question={item.question}
+      profile='https://www.zdnet.com/a/img/resize/605df164b50d7127344cce4c41e5e2a36ac951b4/2023/04/05/e0478a88-b3ed-4516-8459-e0b919b4b2bc/artificial-intelligence.jpg?auto=webp&width=1280'
+      photo='https://www.zdnet.com/a/img/resize/605df164b50d7127344cce4c41e5e2a36ac951b4/2023/04/05/e0478a88-b3ed-4516-8459-e0b919b4b2bc/artificial-intelligence.jpg?auto=webp&width=1280'
+      // time={item.time}
+      time="4 hours ago"
+      option1={item.option1.text}
+      option2={item.option2.text}
+      option3={item.option3.text}
+      option4={item.option4.text}
+    />
+  );
+
+
+  state={
+    popularSelected:true
+}
+onTabPressed=()=>{
+    this.setState({popularSelected:!this.state.popularSelected})
+}
+
 
  
-    render(){
-     
-       
-
+ 
         return(
+          
     
             <View style={{
                 flex:1,
@@ -39,8 +73,9 @@ export default class Home extends React.Component{
                     justifyContent:"space-between",
                      paddingHorizontal:10
                 }}>
-                
-                
+
+                <View>
+                   
                 <Text style={{
                   fontFamily:"Bold",
                   fontSize:20,
@@ -49,11 +84,22 @@ export default class Home extends React.Component{
                   
                   
               }}>DICHOTOMY</Text>
-               
+                </View>
+                
+                
+                
+                <View
+                style={{
+                  flexDirection:"row",
+                  justifyContent:"space-evenly",
+                 
+                }}>
 
-
-                <TouchableOpacity>
-                <Icon name = "dots-three-vertical"
+                <TouchableOpacity
+                style={{
+                 
+                }}>
+                <Icon name = "menu"
                           size={20}
                           color="#044244"
                           style={{
@@ -61,33 +107,15 @@ export default class Home extends React.Component{
                               marginTop:7
                           }}/>
 
+
                 </TouchableOpacity>
 
-                </View>
-
-
-
-            <View style={{
-                  backgroundColor:"#eaeaea",
-                  borderTopLeftRadius:40,
-                  borderTopRightRadius:40,
-                  flex:1,
-        
-              }}>
-
-              <View
+              <TouchableOpacity
               style={{
-                flexDirection:"row",
-                backgroundColor:"#ffffff",
-                alignItems:"center",
-                paddingHorizontal:10,
-                paddingVertical:10
-               
-              }}>
-
-              <TouchableOpacity>
+                  marginHorizontal:10
+                }}>
               <Image source={require('../images/p2.jpg')}
-                          style={{alignSelf:"flex-start",marginLeft:7,width:50,height:50,   borderRadius:25,
+                          style={{alignSelf:"flex-start",marginLeft:7,width:30,height:30,   borderRadius:15,
                           borderWidth:3,
                           borderColor:"#044244",}}/>
 
@@ -95,16 +123,46 @@ export default class Home extends React.Component{
 
               
 
-                 <View style={{
+              
+
+                </View>
+               
+
+
+               
+
+                </View>
+
+
+
+            <View style={{
+                 
+                  borderTopLeftRadius:40,
+                  borderTopRightRadius:40,
+                  marginVertical:5,
+                  flex:1,
+        
+              }}>
+
+                   <View style={{
                       flexDirection:"row",
-                      justifyContent:"space-evenly",
-                      backgroundColor:"#eaeaea",
+                      justifyContent:"space-between",
+                      backgroundColor:"#fffff",
                       borderTopLeftRadius:15,
-                      marginHorizontal:25, 
+                      marginLeft:10,
+                      marginRight:25,
                        alignContent:"center",
+                    
                       borderTopRightRadius:15
                   }}>
-                      <TouchableOpacity
+
+                  <View
+                  style={
+                    {
+                      flexDirection:"row"
+                    }
+                  }>
+                  <TouchableOpacity
                            onPress={()=>this.props.navigation.navigate('ProfileActivity')}
                         style={{
                             borderBottomColor:this.state.popularSelected ? "#044244":"#FFF",
@@ -162,165 +220,42 @@ export default class Home extends React.Component{
                           
                       </TouchableOpacity>
 
-                      <TouchableOpacity
-                        onPress={this.onTabPressed}
-                        style={{
-                            borderBottomColor:this.state.popularSelected ? "#FFF":"#044244",
-                            borderBottomWidth:4,
-                            paddingVertical:6,
-                            marginHorizontal:5
-                     
-                        }}
-                      >
-                         <Image  source={require('../images/film.png')}
-                       style={{
-                        height:30,
-                        width:30,
-
-                       }}>
-
-                       </Image>
-                       <Text style={{
-                        color:"#000000",
-                        fontSize:10,
-
-                       }}>
-                        Cinema
-                       </Text>
-                          
-                      </TouchableOpacity>
-
-
-                      <TouchableOpacity
-                        onPress={this.onTabPressed}
-                        style={{
-                            borderBottomColor:this.state.popularSelected ? "#FFF":"#044244",
-                            borderBottomWidth:4,
-                            paddingVertical:6,
-                            marginHorizontal:5
-                     
-                        }}
-                      >
-                         <Image  source={require('../images/film.png')}
-                       style={{
-                        height:30,
-                        width:30,
-
-                       }}>
-
-                       </Image>
-                       <Text style={{
-                        color:"#000000",
-                        fontSize:10,
-
-                       }}>
-                        Cinema
-                       </Text>
-                          
-                      </TouchableOpacity>
                   </View>
 
 
-              </View>
+
+                      <TouchableOpacity
+                style={{
+                 
+                }}>
+                <Icon name = "sort"
+                          size={20}
+                          color="#044244"
+                          style={{
+                              marginRight:-7,
+                              marginTop:7
+                          }}/>
+
+
+                </TouchableOpacity>
+
+                  
+                  </View>
 
 
            
 
 
 
-            <ScrollView
-            showsVerticalScrollIndicator={false}
-            style={{
-              
-               flex:1,
-              
-            
-               
-            }}
-          >
-
-                       <Posts
-                        onPress={()=>this.props.navigation.navigate('SamplePosts')}
-                        name="TheUncomplicated"
-                        time="08 mins ago"
-                        question="What's your view on the following Ram Mandir inauguration ?"
-                        profile='https://www.zdnet.com/a/img/resize/605df164b50d7127344cce4c41e5e2a36ac951b4/2023/04/05/e0478a88-b3ed-4516-8459-e0b919b4b2bc/artificial-intelligence.jpg?auto=webp&width=1280'
-                        photo='https://www.zdnet.com/a/img/resize/605df164b50d7127344cce4c41e5e2a36ac951b4/2023/04/05/e0478a88-b3ed-4516-8459-e0b919b4b2bc/artificial-intelligence.jpg?auto=webp&width=1280'
-      
-                        option1="Oportunity to capitalize"
-                        option2="Waste of Money"
-                        option3="Political Agenda"
-                        option4="Cultural Restoration"
-                        // props=postData
-                      />
+              <View >
 
 
-
-                   
-                      <Posts
-                        onPress={()=>this.props.navigation.navigate('Detail')}
-                        name="@LoneWol080"
-                        time="45 min ago"
-                        question="Politics and religion should not be mixed together? What is your saying?"
-                        profile='https://www.zdnet.com/a/img/resize/605df164b50d7127344cce4c41e5e2a36ac951b4/2023/04/05/e0478a88-b3ed-4516-8459-e0b919b4b2bc/artificial-intelligence.jpg?auto=webp&width=1280'
-                        photo='https://www.zdnet.com/a/img/resize/605df164b50d7127344cce4c41e5e2a36ac951b4/2023/04/05/e0478a88-b3ed-4516-8459-e0b919b4b2bc/artificial-intelligence.jpg?auto=webp&width=1280'
-      
-                        option1="Yes"
-                        option2="No"
-                        option3="LMKIC"
-                     
-                       
-                      />
-
-                    
-
-        
-                      <Posts
-                        onPress={()=>this.props.navigation.navigate('Detail')}
-                        name="Mr.Jester"
-                        time="24 mins ago"
-                        question="Are you afraid of posting pictures due to growth of deepfake technology?"
-                        profile='https://www.zdnet.com/a/img/resize/605df164b50d7127344cce4c41e5e2a36ac951b4/2023/04/05/e0478a88-b3ed-4516-8459-e0b919b4b2bc/artificial-intelligence.jpg?auto=webp&width=1280'
-                        photo='https://www.zdnet.com/a/img/resize/605df164b50d7127344cce4c41e5e2a36ac951b4/2023/04/05/e0478a88-b3ed-4516-8459-e0b919b4b2bc/artificial-intelligence.jpg?auto=webp&width=1280'
-      
-                        option1="Yes"
-                        option2="Not Exactly"
-                        option3="Litle Much"
-                      />
-
-                
-
-                
-
-                      <Posts
-                        onPress={()=>this.props.navigation.navigate('Splash')}
-                        name="CricketGeek"
-                        time="1 h ago"
-                        question="Do you think virat kohli will surpass the legacy of Sachin Tendulkar in next 5 years ?"
-                        profile='https://www.zdnet.com/a/img/resize/605df164b50d7127344cce4c41e5e2a36ac951b4/2023/04/05/e0478a88-b3ed-4516-8459-e0b919b4b2bc/artificial-intelligence.jpg?auto=webp&width=1280'
-                        photo='https://www.zdnet.com/a/img/resize/605df164b50d7127344cce4c41e5e2a36ac951b4/2023/04/05/e0478a88-b3ed-4516-8459-e0b919b4b2bc/artificial-intelligence.jpg?auto=webp&width=1280'
-      
-                      />
-
-               
-
-                 
-                      <Posts
-                        onPress={()=>this.props.navigation.navigate('Detail')}
-                        question="Change in criminal laws that increases jail terms in hit-and-run cases to up to 10 years,Do you support these changes ?"
-                        time="3 h ago"
-                        name="User241"
-                        profile='https://www.zdnet.com/a/img/resize/605df164b50d7127344cce4c41e5e2a36ac951b4/2023/04/05/e0478a88-b3ed-4516-8459-e0b919b4b2bc/artificial-intelligence.jpg?auto=webp&width=1280'
-                       photo='https://www.zdnet.com/a/img/resize/605df164b50d7127344cce4c41e5e2a36ac951b4/2023/04/05/e0478a88-b3ed-4516-8459-e0b919b4b2bc/artificial-intelligence.jpg?auto=webp&width=1280'
-      
-                      />
-
-                   
-
-                
-
-
-                  </ScrollView>
+      <FlatList
+        data={posts}
+        renderItem={renderItem}
+        keyExtractor={item => item._id} // Assuming _id is a unique identifier for each post
+      />
+    </View>
 
 
               </View>
@@ -330,13 +265,20 @@ export default class Home extends React.Component{
 
             </View>
 
-            // </LinearGradient>
+         
 
 
 
        
-        )
-        
-    }
-    
-}
+        );
+      };
+
+      const styles = StyleSheet.create({
+        container: {
+          flex: 1,
+         
+        },
+      });
+      
+      export default App;
+      

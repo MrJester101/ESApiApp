@@ -47,14 +47,14 @@ export default class Posts extends React.Component{
                    width:"100%",
                    paddingHorizontal:15,
             
-                   backgroundColor:"#fff"
+                //    backgroundColor:"#fff"
                }}>
 
                <View style={{
                    flexDirection:"row",
                    paddingTop:5,
                    justifyContent:"space-between",
-                   backgroundColor:"#fff",
+                //    backgroundColor:"#fff",
                    
                             
                 }}>
@@ -204,11 +204,9 @@ export default class Posts extends React.Component{
             
             </View>
 
+            <TouchableOpacity>
 
-
-              
-
-               {photo &&(  <View style={{
+            {photo &&(  <View style={{
                    flexDirection:"row",
                    width:"100%",
                    paddingTop:20,
@@ -225,7 +223,7 @@ export default class Posts extends React.Component{
                         maxHeight:300
                     }}
                     imageStyle={{
-                        borderRadius:15
+                        borderRadius:5
                     }}
                     >
                     
@@ -233,6 +231,13 @@ export default class Posts extends React.Component{
                </View>
                )
                 }
+
+            </TouchableOpacity>
+
+
+
+              
+
 
                 <View style={{
                     backgroundColor:"#fff"
