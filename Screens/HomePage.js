@@ -16,28 +16,18 @@ export default class Home extends React.Component{
     onTabPressed=()=>{
         this.setState({popularSelected:!this.state.popularSelected})
     }
+
+ 
     render(){
+     
        
 
         return(
-            <LinearGradient
-            colors={['#4B39EF', '#FF5963', '#EE8B60']}
-            // colors={['#000000', '#000000', '#000000']}
-            start={[0, 0]}
-            end={[1, 0]}
-            style={{
-              flex: 1,
-              width: '100%',
-            //   paddingHorizontal: 10,
-            }}
-          >
-
-
-
-
+    
             <View style={{
                 flex:1,
                 width:"100%",
+                backgroundColor:"#ffffff"
             }}>
 
 
@@ -46,60 +36,35 @@ export default class Home extends React.Component{
                     width:"100%",
                     paddingTop:40,
                     alignItems:"center",
+                    justifyContent:"space-between",
                      paddingHorizontal:10
                 }}>
-                    <View style={{
-                       width:"20%",
-                    height:50,
-                       alignItems:"flex-end",
-                    }}>
-                        <Image source={require('../images/p2.jpg')}
-                          style={{alignSelf:"flex-start",marginLeft:7,width:50,height:50,   borderRadius:25,
-                          borderWidth:3,
-                          borderColor:"#044244",}}/>
-                    </View>
-
-                    <View style={{
-                       width:"60%",
-                    height:50,
-                       alignItems:"flex-end",
-                    }}>
-                       
-                           </View>
+                
+                
+                <Text style={{
+                  fontFamily:"Bold",
+                  fontSize:20,
+                  alignSelf:"center",
+                  color:"#044244"
+                  
+                  
+              }}>DICHOTOMY</Text>
+               
 
 
-
-                    <View style={{
-                        width:"20%",
-                        alignItems:"flex-end",
-                    }}>
-                        <Icon name = "dots-three-vertical"
-                          size={22}
-                          color="#d2d2d2"
+                <TouchableOpacity>
+                <Icon name = "dots-three-vertical"
+                          size={20}
+                          color="#044244"
                           style={{
                               marginRight:-7,
                               marginTop:7
                           }}/>
-                    </View>
 
-
-
-
+                </TouchableOpacity>
 
                 </View>
 
-
-              <Text style={{
-                  fontFamily:"Bold",
-                  fontSize:25,
-                  alignSelf:"center",
-                  color:"#FFF",
-                  paddingTop:7,
-                  paddingBottom:7
-              }}>DICHOTOMY</Text>
-
-
-         
 
 
             <View style={{
@@ -107,26 +72,45 @@ export default class Home extends React.Component{
                   borderTopLeftRadius:40,
                   borderTopRightRadius:40,
                   flex:1,
-                //   borderWidth:15,
-                //   borderColor:"#fff",
-                //   paddingHorizontal:15
+        
               }}>
 
+              <View
+              style={{
+                flexDirection:"row",
+                backgroundColor:"#ffffff",
+                alignItems:"center",
+                paddingHorizontal:10,
+                paddingVertical:10
+               
+              }}>
 
-            <View style={{
+              <TouchableOpacity>
+              <Image source={require('../images/p2.jpg')}
+                          style={{alignSelf:"flex-start",marginLeft:7,width:50,height:50,   borderRadius:25,
+                          borderWidth:3,
+                          borderColor:"#044244",}}/>
+
+              </TouchableOpacity>
+
+              
+
+                 <View style={{
                       flexDirection:"row",
-                      paddingTop:20,
-                      backgroundColor:"#fff",
-                      borderTopLeftRadius:20,
-                      paddingHorizontal:15,
-                      borderTopRightRadius:20
+                      justifyContent:"space-evenly",
+                      backgroundColor:"#eaeaea",
+                      borderTopLeftRadius:15,
+                      marginHorizontal:25, 
+                       alignContent:"center",
+                      borderTopRightRadius:15
                   }}>
                       <TouchableOpacity
-                           onPress={()=>this.props.navigation.navigate('ContentLibrary')}
+                           onPress={()=>this.props.navigation.navigate('ProfileActivity')}
                         style={{
                             borderBottomColor:this.state.popularSelected ? "#044244":"#FFF",
                             borderBottomWidth:4,
-                            paddingVertical:6
+                            paddingVertical:6,
+                            marginHorizontal:5
                         }}
                       >
                         
@@ -156,7 +140,65 @@ export default class Home extends React.Component{
                             borderBottomColor:this.state.popularSelected ? "#FFF":"#044244",
                             borderBottomWidth:4,
                             paddingVertical:6,
-                            marginLeft:30
+                            marginHorizontal:5
+                     
+                        }}
+                      >
+                         <Image  source={require('../images/film.png')}
+                       style={{
+                        height:30,
+                        width:30,
+
+                       }}>
+
+                       </Image>
+                       <Text style={{
+                        color:"#000000",
+                        fontSize:10,
+
+                       }}>
+                        Cinema
+                       </Text>
+                          
+                      </TouchableOpacity>
+
+                      <TouchableOpacity
+                        onPress={this.onTabPressed}
+                        style={{
+                            borderBottomColor:this.state.popularSelected ? "#FFF":"#044244",
+                            borderBottomWidth:4,
+                            paddingVertical:6,
+                            marginHorizontal:5
+                     
+                        }}
+                      >
+                         <Image  source={require('../images/film.png')}
+                       style={{
+                        height:30,
+                        width:30,
+
+                       }}>
+
+                       </Image>
+                       <Text style={{
+                        color:"#000000",
+                        fontSize:10,
+
+                       }}>
+                        Cinema
+                       </Text>
+                          
+                      </TouchableOpacity>
+
+
+                      <TouchableOpacity
+                        onPress={this.onTabPressed}
+                        style={{
+                            borderBottomColor:this.state.popularSelected ? "#FFF":"#044244",
+                            borderBottomWidth:4,
+                            paddingVertical:6,
+                            marginHorizontal:5
+                     
                         }}
                       >
                          <Image  source={require('../images/film.png')}
@@ -179,10 +221,17 @@ export default class Home extends React.Component{
                   </View>
 
 
+              </View>
+
+
+           
+
+
 
             <ScrollView
             showsVerticalScrollIndicator={false}
             style={{
+              
                flex:1,
               
             
@@ -281,11 +330,13 @@ export default class Home extends React.Component{
 
             </View>
 
-            </LinearGradient>
+            // </LinearGradient>
 
 
 
        
         )
+        
     }
+    
 }

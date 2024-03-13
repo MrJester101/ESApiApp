@@ -219,11 +219,13 @@ export default class Posts extends React.Component{
                     source={{ uri: photo }}
                     style={{
                         width:"100%",
-                        height:220,
-                        maxHeight:220
+                        // height:220,
+                        height:"100%",
+                        minHeight:200,
+                        maxHeight:300
                     }}
                     imageStyle={{
-                        borderRadius:30
+                        borderRadius:15
                     }}
                     >
                     

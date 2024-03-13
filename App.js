@@ -6,6 +6,8 @@ import HomePage from './Screens/HomePage';
 import SamplePosts from './Screens/SamplePosts';
 import ContentLibrary from "./Screens/ContentLibrary"
 import ContentPosts from './Screens/ContentPosts';
+import ProfileActivity from './Screens/ProfileActivity';
+import ProfileDetail from './Screens/ProfileDetail';
 
 import * as Font from 'expo-font';
 
@@ -53,11 +55,18 @@ export default class App extends React.Component {
               options={{ headerShown: false }}
             /> 
 
-             {/* <Stack.Screen
-              name="ContentPosts"
-              component={ContentPosts}
+             <Stack.Screen
+              name="ProfileActivity"
+              component={ProfileActivity}
               options={{ headerShown: false }}
-            />  */}
+            /> 
+
+
+             <Stack.Screen
+              name="ProfileDetail"
+              component={ProfileDetail}
+              options={{ headerShown: false }}
+            /> 
             {/* Add more screens here */}
           
           </Stack.Navigator>
