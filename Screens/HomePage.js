@@ -61,7 +61,8 @@ onTabPressed=()=>{
             <View style={{
                 flex:1,
                 width:"100%",
-                backgroundColor:"#ffffff"
+                // backgroundColor:"#C1A06Be6",
+                backgroundColor:"fffff"
             }}>
 
 

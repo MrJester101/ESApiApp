@@ -142,7 +142,7 @@ export default class Posts extends React.Component{
                               <Text style={{
                                    fontFamily:"Bold",
                                    fontSize:12,
-                                 
+                                   backgroundColor:"#fffff",
                                    alignSelf:"center",
                                    color:"#044244" 
                                    }}>
@@ -183,7 +183,6 @@ export default class Posts extends React.Component{
                         flex:1,
                         alignItems:"flex-start",
                         paddingHorizontal:2,
-                        backgroundColor:"#fff"
                     }}
                     onPress={onPress}>
                          <Text style={{
@@ -211,7 +210,7 @@ export default class Posts extends React.Component{
                    width:"100%",
                    paddingTop:20,
                    paddingHorizontal:15,
-                   backgroundColor:"#fff"
+                  
                }}>
                     <ImageBackground 
                     source={{ uri: photo }}
@@ -240,13 +239,13 @@ export default class Posts extends React.Component{
 
 
                 <View style={{
-                    backgroundColor:"#fff"
+                    // backgroundColor:"#fff"
 
                 }}> 
                     
                     { (option1 || option2 || option3 || option4) && (
                  <View style={{
-                    backgroundColor:"#ffff",
+                    // backgroundColor:"#ffff",
                     padding:10,
                     margin:20,
                     borderWidth:5,
@@ -357,7 +356,7 @@ export default class Posts extends React.Component{
                             alignItems:"flex-start",
                             paddingTop:10,
                             paddingHorizontal:15,
-                            backgroundColor:"#fff",
+                            // backgroundColor:"#fff",
                             justifyContent:"flex-start"
                         }}>
 
@@ -473,12 +472,14 @@ export default class Posts extends React.Component{
                         </View>
 
 
-                <View style={{backgroundColor:"#fff", paddingHorizontal:15,marginBottom:7}}>
+                <View style={{
+                    // backgroundColor:"#fff",
+                 paddingHorizontal:15,marginBottom:7}}>
 
                 <Text style={{
                             fontFamily:"Medium",
                             fontSize:14,
-                            backgroundColor:"#fff",
+                            // backgroundColor:"#fff",
                             marginLeft:5,
                             marginBottom:4,
                             
